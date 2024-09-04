@@ -102,8 +102,8 @@ def _escape(value: Any) -> Any:
     elif isinstance(value, bool):
         value = str(value).lower()
 
-    # don't decode bytestrings
-    elif isinstance(value, bytes):
+    # don't decode bytestrings, int, float
+    elif isinstance(value, (bytes, int, float)):
         return value
 
     # encode strings to utf-8
